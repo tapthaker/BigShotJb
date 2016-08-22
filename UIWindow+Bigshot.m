@@ -1,18 +1,8 @@
-#import "UIView+Toast.h"
 
 @implementation UIWindow (BigShot)
 
 UIScrollView* getVerticalScrollView(UIView *aView);
 UIWebView* getWebView(UIView *aView);
-
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake) {
-        UIImage *image = [self takeFullScreenShot];
-        UIImageWriteToSavedPhotosAlbum(image,nil,nil,nil);
-        [self makeToast:@"BigShot saved !!!!"];
-
-    }
-}
 
 -(UIImage*)takeFullScreenShot{
     CGRect bounds = self.bounds;
@@ -30,6 +20,10 @@ UIWebView* getWebView(UIView *aView);
         CGFloat exceptScollViewHeight = bounds.size.height - scrollView.bounds.size.height;
         calculatedHeight = scrollView.contentSize.height + exceptScollViewHeight;
         previousContentOffset = scrollView.contentOffset;
+    }
+
+    if (calculatedHeight > 10000) {
+        calculatedHeight = 10000;
     }
 
     if (calculatedHeight > self.bounds.size.height) {

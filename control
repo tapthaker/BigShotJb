@@ -1,10 +1,10 @@
 Package: com.tapthaker.bigshotjb
 Name: BigShotJb
 Description: A way to take screenshots of full vertically scrollable area of the screen.
-Version: 0.0.1
+Version: 0.0.2
 Priority: optional
 Section: Addons
 Architecture: iphoneos-arm
-Depends: mobilesubstrate
+Depends: mobilesubstrate (>= 0.9.5000), libactivator (>= 1.8.3), cc.tweak.libobjcipc
 Maintainer: Tapan Thaker
-Author: Tapan Thaker
+Author: Tapan Thaker (tapthaker) <tapan.d.thaker@gmail.com>
